@@ -1,5 +1,9 @@
 require "match_regex/version"
 
 module MatchRegex
-  # Your code goes here...
+  def match_regex(text, regex)
+    text.to_s[Regexp.new(regex), 1]
+  end
 end
+
+Liquid::Template.register_filter(MatchRegex)
